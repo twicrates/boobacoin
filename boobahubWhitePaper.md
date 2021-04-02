@@ -7,9 +7,9 @@ What I’m proposing is a cross-chain NFT/Booba platform. Substrate for DOT uses
 Presently, there are no based NFT exchanges on DOT or Solana. Ethereum has all of the market share at the moment, and nobody has stepped up to fill the void on these other Layer 1s. At least not anyone cool. This gap leaves artists and memers alike trapped on Ethereum, paying out absurd amounts of money on gas just to have their work criticized by nature loving furries. 
 
 ## The Solution
-	Enter Boobahub. On our platform artists, shitposters, egirls, and anyone who feels like creating a NFT will be able to mint their work, and put it up for sale. Users will then be able to purchase these NFTs directly from the artists and subsequently will flex those NFTs on other people. 
-	Driving this market will be Boobahub’s token, $booba. $booba will act as both a currency, and as a “proof of based” system. Users and creators will carry out their transactions in $booba, and holding x amount of $booba will be required for creators to be able to mint their NFTs on our platform. It will be on the lower end, as we are for the people, but it will be required nonetheless. 
-	Users will also be able to stake their $booba in a process called Motor Boating. 
+Enter Boobahub. On our platform artists, shitposters, egirls, and anyone who feels like creating a NFT will be able to mint their work, and put it up for sale. Users will then be able to purchase these NFTs directly from the artists and subsequently will flex those NFTs on other people. 
+Driving this market will be Boobahub’s token, $booba. $booba will act as both a currency, and as a “proof of based” system. Users and creators will carry out their transactions in $booba, and holding x amount of $booba will be required for creators to be able to mint their NFTs on our platform. It will be on the lower end, as we are for the people, but it will be required nonetheless. 
+Users will also be able to stake their $booba in a process called Motor Boating. 
 
 ## Ponzinomics
 Describe the Ponzinomics. Brief summary: Users pay creators in $booba. Creator gets x% of the $booba, the rest is added back to the staking rewards pool as a service fee. Creators are free to sell $booba on the open market, or stake it themselves. Also considering some sort of burn mechanism to reduce the supply of $booba as time wears on
