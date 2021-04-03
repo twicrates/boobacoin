@@ -3712,6 +3712,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-awooga"
+version = "0.0.0"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+]
+
+[[package]]
 name = "pallet-balances"
 version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
