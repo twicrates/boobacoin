@@ -353,6 +353,7 @@ dependencies = [
  "sp-core",
  "sp-io",
  "sp-runtime",
+ "sp-std",
 ]
 
 [[package]]
@@ -3542,6 +3543,7 @@ name = "node-template-runtime"
 version = "3.0.0"
 dependencies = [
  "awooga-pallet",
+ "awooga-pallet-commodities",
  "frame-benchmarking",
  "frame-executive",
  "frame-support",

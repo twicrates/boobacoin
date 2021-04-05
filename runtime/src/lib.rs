@@ -45,6 +45,9 @@ pub use pallet_template;
 // Awoogable Commodity pallet.
 pub use awooga_pallet;
 
+// Commodity pallet
+pub use awooga_pallet_commodities;
+
 /// An index to a block.
 pub type BlockNumber = u32;
 
@@ -70,6 +73,9 @@ pub type Hash = sp_core::H256;
 
 /// Digest item type.
 pub type DigestItem = generic::DigestItem<Hash>;
+
+// A timestamp: milliseconds since the unix epoch.
+pub type Moment = u64;
 
 /// Opaque types. These are used by the CLI to instantiate machinery that don't need to know
 /// the specifics of the runtime. They can then be made to be agnostic over specific formats
@@ -104,6 +110,11 @@ pub const VERSION: RuntimeVersion = RuntimeVersion {
 	apis: RUNTIME_API_VERSIONS,
 	transaction_version: 1,
 };
+
+// Runtime Consts
+pub const MILLICENTS: Balance = 1_000_000_000;
+pub const CENTS: Balance = 1_000 * MILLICENTS;
+pub const DOLLARS: Balance = 100 * CENTS;
 
 
 /// This determines the average expected block time that we are targeting.
@@ -267,9 +278,32 @@ impl pallet_template::Config for Runtime {
 	type Event = Event;
 }
 
+parameter_types! {
+    pub const MaxBoobas: u128 = 2^64;
+    pub const MaxBoobasPerUser: u64 = 256;
+}
+
+// Use the default commodity instance.
+impl awooga_pallet_commodities::Trait for Runtime {
+    type CommodityAdmin = frame_system::EnsureRoot<AccountId>;
+    type CommodityInfo = awooga_pallet::BoobaInfo<Hash, Moment>;
+    type CommodityLimit = MaxBoobas;
+    type UserCommodityLimit = MaxBoobasPerUser;
+    type Event = Event;
+}
+
+parameter_types! {
+    pub const BasePrice: Balance = 1 * DOLLARS;
+}
+
 // Implement awooga pallet
 // add this block
 impl awooga_pallet::Config for Runtime {
+	type Boobas = awooga_pallet_commodities::Module<Runtime>;
+    type Time = pallet_timestamp::Module<Runtime>;
+    type Randomness = pallet_randomness_collective_flip::Module<Runtime>;
+    type Currency = pallet_balances::Module<Runtime>;
+    type BasePrice = BasePrice;
 	type Event = Event;
   }
 
@@ -290,6 +324,7 @@ construct_runtime!(
 		Sudo: pallet_sudo::{Module, Call, Config<T>, Storage, Event<T>},
 		// Include the custom logic from the template pallet in the runtime.
 		TemplateModule: pallet_template::{Module, Call, Storage, Event<T>},
+		AwoogaCommodities: awooga_pallet_commodities::{Module, Call, Storage, Event<T>},
 		AwoogaPallet: awooga_pallet::{Module, Call, Storage, Event<T>},
 	}
 );
